@@ -140,7 +140,7 @@ class CitySelectionModal extends Component {
               />
             </TouchableOpacity>
             <Text14
-              title={'Select City'}
+              title={type == 'pt' ? 'Select Terminal' : 'Select City'}
               type="bold"
               addStyle={{color: Colors.whiteFF}}
             />
@@ -187,8 +187,11 @@ class CitySelectionModal extends Component {
             }
             buttonPressed={() => {
               onSelectVal(selectedFilterValue);
-              let data = type == 'pt' ? cityByGrp : allCities;
-              this.setState({listData: data, selectedFilterValue: {}});
+              if (type != 'pt') {
+                this.setState({listData: allCities, selectedFilterValue: {}});
+              }
+              // let data = type == 'pt' ? cityByGrp : allCities;
+              // this.setState({listData: data, selectedFilterValue: {}});
             }}
             containerStyle={{marginTop: 0, marginBottom: 10}}
           />

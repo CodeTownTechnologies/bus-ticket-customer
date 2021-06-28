@@ -1,4 +1,4 @@
-import {getCall, postCall, deleteCall} from './helper';
+import {getCall, postCall} from './helper';
 import apiUrls from './apiUrls';
 import Store from '../store/createStore';
 
@@ -8,7 +8,7 @@ Store.subscribe(() => {
     userId = Store.getState().loginReducer.user.id;
   }
 });
-export default API = {
+export default {
   user: {
     loginAPI: (data) => postCall(apiUrls.login, data),
     getOtp: (data) => postCall(apiUrls.getOtp, data),
@@ -57,5 +57,11 @@ export default API = {
   },
   more: {
     inbox: () => postCall(apiUrls.inbox, {user_id: userId}),
+  },
+  ticket: {
+    getActiveTickets: () =>
+      postCall(apiUrls.getTickets, {user_id: userId, type: 'active'}),
+    getArchivedTickets: () =>
+      postCall(apiUrls.getTickets, {user_id: userId, type: 'archived'}),
   },
 };

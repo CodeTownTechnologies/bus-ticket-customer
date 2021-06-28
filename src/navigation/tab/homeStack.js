@@ -21,6 +21,8 @@ import UseTicket from '../../screens/tabs/home/publicTransport/paymentMethod/use
 import SelectCityOnboarding from '../../screens/onboarding/SelectCityOnboarding/SelectCityOnboarding';
 import SubscriptionPackage from '../../screens/tabs/home/publicTransport/subscriptionPackage/subscriptionPackage';
 import PackageDetails from '../../screens/tabs/home/publicTransport/subscriptionPackage/packageDetails';
+import CreditCardScreen from '../../screens/tabs/home/publicTransport/paymentMethod/PaymentGatewayXendit';
+import PaymentGatewayXendit from '../../screens/tabs/home/publicTransport/paymentMethod/PaymentGatewayXendit';
 
 const Stack = createStackNavigator();
 
@@ -108,6 +110,12 @@ function busRouteStack({navigation, route}) {
       <Stack.Screen
         name="creditCard"
         component={CreditCard}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="paymentGatewayXendit"
+        component={PaymentGatewayXendit}
         options={{headerShown: false}}
       />
 

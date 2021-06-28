@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-  View,
-  TouchableOpacity,
-  Image,
-  TextInput,
-  Modal,
-  FlatList,
-} from 'react-native';
+import {View, TouchableOpacity, Image, Modal, FlatList} from 'react-native';
 import {Colors, AppStyles, Images} from '../../../../theme';
 import {
   Text14,
@@ -63,10 +56,7 @@ class PublicTransport extends Component {
         // date: new Date()
       };
       this.setState({isLoading: true});
-
-      console.log('data', data);
       API.home.searchTrip(data).then((res) => {
-        console.log('res', res);
         this.setState({isLoading: false});
         if (res && res.data && res.data.status == 'ok') {
           this.setState({listData: res.data.data});
@@ -264,14 +254,14 @@ class PublicTransport extends Component {
               return (
                 <TouchableOpacity
                   style={[AppStyles.shadow, styles.listView]}
-                  onPress={() =>
+                  onPress={() => {
                     navigation.navigate('routeData', {
                       ...route.params,
                       ...item,
                       searchedData: this.state.listData,
                       selectedTripIndex: index,
-                    })
-                  }>
+                    });
+                  }}>
                   {/* <View style={styles.busNoView}>
                     <Text12 type="regularWhite" title={item.route} />
                   </View> */}
